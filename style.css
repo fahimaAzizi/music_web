@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Flow+Circular&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+    margin: 16px 0;
+}
+
+.home {
+    padding: 10px;
+}
+
+.home ul li {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 14px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.heading {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding: 23px 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px;
+}
+
+.heading img {
+    width: 28px;
+}
+
+.library {
+    min-height: 80vh;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    font-size: 10px;
+    color: gray;
+    gap: 13px;
+    position: absolute;
+    bottom: 0;
+   padding:10px 0 ;
+}
+
+.footer a {
+    color: gray;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(19, 19, 19);
+}
+.right{
+    margin: 16px;
+}
+
+.header > * {
+    padding: 20px;
+}
+
+.playlists {
+    padding: 6px;
+}
+
+.playlists .card {
+    width: 200px; /* Increased width to fit content */
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #252525;
+    color: white;
+    
+}
+.cardContainer{
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.card{
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+
+.card > * {
+    padding-top: 10px;
+}
+
+.card img {
+    width: 100%; 
+    border-radius:7px;
+    
+    object-fit: cover;
+}
+/* .play{
+    width: 28px;
+    height: 28px;
+    background-color: blue;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+
+    position: absolute;
+    top: 168px;
+    right: 17px;
+    opacity: 0;
+    transition: all 1s ease-out;
+} */
+.imageContainer {
+    position: relative;
+    width: fit-content;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: rounds the corners of the image */
+}
+
+.play {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 48px; /* Adjust size as needed */
+    height: 48px;
+    background-color: #46e92c; /* Black background for the play button */
+    border-radius: 50%; /* Makes the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.play svg path {
+    fill: #000000; /* White color for the play icon */
+}
+.button >*{
+margin: 0 12px;
+color: #252525;
+}
+.Signup{
+background-color:rgb(#252525);
+color: #252525;
+font-weight:bold;
+outline: none;
+border: none;
+font-size: 16px;
+ }
+.Signup:hover{
+font-size: 1.1rem;
+color: rgb(34, 31, 31);
+ }
+
+
+
