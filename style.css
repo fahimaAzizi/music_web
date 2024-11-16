@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,6 +11,7 @@ body {
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+
 
 .left {
     width: 25vw;
@@ -60,7 +62,7 @@ body {
     gap: 13px;
     position: absolute;
     bottom: 0;
-   padding:10px 0 ;
+    padding: 10px 0;
 }
 
 .footer a {
@@ -72,9 +74,6 @@ body {
     justify-content: space-between;
     background-color: rgb(19, 19, 19);
 }
-.right{
-    margin: 16px;
-}
 
 .header > * {
     padding: 20px;
@@ -84,25 +83,17 @@ body {
     padding: 6px;
 }
 
-.playlists .card {
-    width: 200px; /* Increased width to fit content */
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #252525;
-    color: white;
-    
-}
-.cardContainer{
+.cardContainer {
     margin: 30px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
 }
-.card{
+
+.card {
     width: 200px;
     border-radius: 5px;
     padding: 10px;
-    border-radius: 5px;
     background-color: #252525;
     position: relative;
 }
@@ -112,27 +103,11 @@ body {
 }
 
 .card img {
-    width: 100%; 
-    border-radius:7px;
-    
+    width: 100%;
+    border-radius: 7px;
     object-fit: cover;
 }
-/* .play{
-    width: 28px;
-    height: 28px;
-    background-color: blue;
-    border-radius: 50%;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content:center ;
 
-    position: absolute;
-    top: 168px;
-    right: 17px;
-    opacity: 0;
-    transition: all 1s ease-out;
-} */
 .imageContainer {
     position: relative;
     width: fit-content;
@@ -141,60 +116,62 @@ body {
 .imageContainer img {
     width: 100%;
     height: auto;
-    border-radius: 8px; /* Optional: rounds the corners of the image */
+    border-radius: 8px;
 }
 
 .Play {
     position: absolute;
-    top: 58%;
-    left: 80%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 48px; 
+    width: 48px;
     height: 48px;
-   
- 
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
+.Play svg path {
+    fill: #000000;
+}
 
-.play svg path {
-    fill: #000000; /* White color for the play icon */
+.Play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: transform 0.3s ease-in-out;
 }
-.button >*{
-margin: 0 11px;
-color: #252525;
-}
-.Signup{
-background-color:rgb(#252525);
-color: #252525;
-font-weight:bold;
-outline: none;
-border: none;
-font-size: 14px;
-border-radius: 5px;
- }
-.Signup:hover{
-font-size: 1.01rem;
-color: rgb(#252525);
-border-radius: 5px;
- }
- .login{
-   
-    color: #252525;
-    font-weight:bold;
+
+.Signup, .login {
+    background-color: #252525;
+    color: white;
+    font-weight: bold;
     outline: none;
     border: none;
     font-size: 14px;
     border-radius: 5px;
-     }
-    .login:hover{
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.Signup:hover, .login:hover {
     font-size: 1.01rem;
-    color: rgb(#252525);
+}
+
+.playbar {
+    position: absolute;
+    background-color: #549d60;
+    color: #000000;
+    bottom:21px;
+    padding: 12px;
+    width: 74%;
+    display: center;
+    right: 6px;
     border-radius: 5px;
-     }
+    
+}
 
-
-
+.songbutn {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
