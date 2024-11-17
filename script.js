@@ -1,7 +1,7 @@
 console.log("Let's write JavaScript");
 
 async function gitSongs() {
-    let a = await fetch("http://127.0.0.1:3000/songs/");
+    let a = await fetch("file:///C:/Users/Mcm/Desktop/DATA/desktop%20data/music/songs/");
     let response = await a.text();
     console.log(response);
 
@@ -20,4 +20,21 @@ async function gitSongs() {
     return songs
 }
 
-gitSongs();
+async function main() {
+  
+    let songs = await getSongs();
+    console.log(songs);
+  
+    
+    var audio = new Audio(songs[1]);
+    audio.play();
+  
+    audio.addEventListener("loadeddata", () => {
+      let duration = audio.duration;
+     
+      console.log(`Duration: ${duration} seconds`);
+    });
+  }
+  
+  main();
+  
