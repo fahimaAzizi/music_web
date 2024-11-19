@@ -1,41 +1,57 @@
-.border {
-    border: 2px solid rgb(73, 70, 70);
+.border{
+    border: 2px solid  red;
     margin: 3px;
 }
 
-.flex {
+.flex{
     display: flex;
 }
 
-.justify-center {
+.justify-center{
     justify-content: center;
 }
 
-.items_center {
+.items-center{
     align-items: center;
 }
 
-.bg_black {
-    background-color: rgb(12, 11, 11);
+.bg-black{
+    background-color: black;
     color: white;
 }
 
-.invert {
+.invert{
     filter: invert(1);
 }
 
-.bg-grey {
-    background-color: rgb(20, 19, 19); /* corrected */
+.bg-grey{
+    background-color: #121212;
 }
 
-.rounded {
+.rounded{
     border-radius: 7px;
 }
 
-.m-1 {
+.m-1{
     margin: 5px;
 }
 
-.p-1 {
+.p-1{
     padding: 10px;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #333; 
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #222; 
+  }
+  
+  
+  
