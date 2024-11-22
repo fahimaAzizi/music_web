@@ -7,14 +7,83 @@ body {
   }
   
   /* Navbar */
-  .navbar {
-    background-color: #5e0505;
-    color: white;
+ /* Navbar styling */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    background-color: #333;
+    color: white;
   }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar .search-bar {
+    padding: 5px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .login-btn a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    border-radius: 5px;
+  }
+  
+  .hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Mobile view styling */
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  
+    .nav-links li {
+      margin-bottom: 15px;
+    }
+  
+    .hamburger-menu {
+      display: block;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  }
+  
   
   .logo {
     font-size: 24px;
