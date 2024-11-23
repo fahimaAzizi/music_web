@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Explore With Us</h1>
+  </header>
+  <style>
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #5e0505; /* Matches Home Page */
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.logo {
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: #6e7dff; /* Matches Home Page Buttons */
+  color: white;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-image {
+  max-width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Vision & Mission */
+.vision-mission {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.vision-mission h2 {
+  color: #5e0505; /* Matches Navbar */
+  margin-bottom: 10px;
+}
+
+/* Story Section */
+.our-story {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #e8f5ff; /* Light Accent */
+}
+
+.story-image {
+  width: 50%;
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Key Values Section */
+.key-values {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.values {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.value {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #6e7dff; /* Matches Hero Section */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.value h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Call to Action Section */
+.call-to-action {
+  background-color: #5e0505; /* Matches Navbar */
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #5e0505; /* Matches Navbar */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+  </style>
+
+  <main class="about-us">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Your Adventure, Our Mission</h2>
+        <p>
+          At ShopEasy Delivery, we believe every delivery is part of a larger journey. Whether it’s food, furniture, or a personal package, 
+          we’re here to connect you to what matters most.
+        </p>
+      </div>
+      <img src="hero-adventure.jpg" alt="Adventure image" class="hero-image">
+    </section>
+
+    <section class="vision-mission">
+      <div class="content">
+        <h2>Our Vision</h2>
+        <p>
+          To redefine the delivery experience through passion, innovation, and unparalleled service.
+        </p>
+        <h2>Our Mission</h2>
+        <p>
+          Making every delivery a memorable journey—seamless, secure, and sustainable.
+        </p>
+      </div>
+    </section>
+
+    <section class="our-story">
+      <h2>Our Story</h2>
+      <p>
+        Founded with the spirit of adventure, ShopEasy Delivery grew from a small local service to a trusted partner for thousands of customers. 
+        We’ve embraced technology and eco-friendly solutions to stay ahead, delivering not just products but also smiles and trust.
+      </p>
+      <img src="team-adventure.jpg" alt="Our team on an adventure" class="story-image">
+    </section>
+
+    <section class="key-values">
+      <h2>Our Core Values</h2>
+      <div class="values">
+        <div class="value">
+          <h3>Innovation</h3>
+          <p>We strive to deliver cutting-edge solutions every day.</p>
+        </div>
+        <div class="value">
+          <h3>Trust</h3>
+          <p>Every delivery is built on reliability and security.</p>
+        </div>
+        <div class="value">
+          <h3>Community</h3>
+          <p>Connecting people, businesses, and ideas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="call-to-action">
+      <h2>Join the Adventure</h2>
+      <p>Let’s create memorable journeys together. Contact us or explore our services to begin.</p>
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 ShopEasy Delivery. All rights reserved.</p>
+  </footer>
+</body>
+</html>
