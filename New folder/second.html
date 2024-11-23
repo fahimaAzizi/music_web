@@ -5,52 +5,182 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Delivery Services</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      background-color: #5e0505;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .delivery-sections {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next row */
+  justify-content: space-evenly; /* Spaces items evenly across the row */
+  gap: 20px; /* Adds space between items */
+  padding: 20px; /* Adds padding around the entire section */
+}
+
+.delivery-item {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Reduced padding for balance */
+  text-align: center;
+  width: 20%; /* Set each item to take 30% of the container width */
+  margin: 10px 0; /* Adds vertical space between rows */
+}
+
+
+
+.delivery-item img {
+  width: 100%;
+  height: 200px; /* Increased height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.delivery-item h2 {
+  font-size: 22px; /* Increased font size */
+  margin-bottom: 10px;
+}
+
+.delivery-item p {
+  font-size: 16px; /* Slightly larger text */
+  color: #555;
+}
+
+    
+  </style>
 </head>
 <body>
   <nav class="navbar">
     <h1 class="logo">ShopEasy Delivery</h1>
   </nav>
 
+  <!-- Image Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-images">
+      <img src="https://via.placeholder.com/1200x400?text=Food+Delivery" alt="Food Delivery">
+      <img src="https://via.placeholder.com/1200x400?text=Grocery+Delivery" alt="Grocery Delivery">
+      <img src="https://via.placeholder.com/1200x400?text=Pharmacy+Delivery" alt="Pharmacy Delivery">
+    </div>
+    <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
   <main class="delivery-sections">
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Food Delivery">
       <h2>Food Delivery</h2>
       <p>Order your favorite meals and get them delivered quickly!</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Grocery Delivery">
       <h2>Grocery Delivery</h2>
       <p>Fresh groceries delivered to your doorstep.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Pharmacy Delivery">
       <h2>Pharmacy Delivery</h2>
       <p>Access medicines and healthcare products with ease.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Document Delivery">
       <h2>Document Delivery</h2>
       <p>Fast and secure document delivery service.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Clothing Delivery">
       <h2>Clothing Delivery</h2>
       <p>Shop for clothes and enjoy convenient delivery.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Furniture Delivery">
       <h2>Furniture Delivery</h2>
       <p>Effortless delivery of furniture to your home.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Electronic Delivery">
       <h2>Electronic Delivery</h2>
       <p>Buy electronics and have them delivered quickly.</p>
     </section>
 
     <section class="delivery-item">
+      <img src="https://via.placeholder.com/300x150" alt="Customized Packages">
       <h2>Customized Packages</h2>
       <p>Deliver your personal packages with care.</p>
     </section>
   </main>
+
+  <script>
+    let currentSlide = 0;
+
+    function changeSlide(direction) {
+      const slides = document.querySelector('.carousel-images');
+      const totalSlides = slides.children.length;
+
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  </script>
 </body>
 </html>
