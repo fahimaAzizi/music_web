@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #5e0505;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .contact-header {
+      background: linear-gradient(to right, #7f0808, #5e0505);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .contact-header h1 {
+      font-size: 2.5em;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-form, .contact-details {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-form h2, .contact-details h2 {
+      margin-bottom: 15px;
+      color: #5e0505;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #5e0505;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #7f0808;
+    }
+
+    .contact-details p, .contact-details a {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #333;
+    }
+
+    .contact-details a {
+      text-decoration: none;
+      color: #5e0505;
+      transition: color 0.3s ease;
+    }
+
+    .contact-details a:hover {
+      color: #7f0808;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: white;
+      background-color: #5e0505;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: #7f0808;
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <h1>ShopEasy Delivery - Contact Us</h1>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="contact-header">
+    <h1>Get in Touch with Us</h1>
+    <p>We’re here to help with your questions, requests, or feedback.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form action="submit-form.php" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="contact-details">
+      <h2>Contact Information</h2>
+      <p><strong>Phone:</strong> <a href="tel:03138349716">0313-8349716</a></p>
+      <p><strong>Email:</strong> <a href="mailto:support@shopeasy.com">support@shopeasy.com</a></p>
+      <p><strong>Address:</strong> 123 Main Street, Your City, Country</p>
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <a href="https://facebook.com/yourprofile">F</a>
+        <a href="https://twitter.com/yourprofile">T</a>
+        <a href="https://instagram.com/yourprofile">I</a>
+        <a href="https://linkedin.com/yourprofile">L</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-map">
+    <h2>Find Us</h2>
+    <p>Visit us at our location for any inquiries or services:</p>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27200.93543065766!2d67.0099381160896!3d30.192436540293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ed2e7d7c57e3b61%3A0x30c6b2467c6b5fa3!2sAlamdar%20Road%2C%20Quetta%2C%20Balochistan%2C%20Pakistan!5e0!3m2!1sen!2s!4v1698793077081!5m2!1sen!2s" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <h3>Contact Information</h3>
+    <p>📍 Address: Alamdar Road, Quetta, Balochistan, Pakistan</p>
+    <p>📞 Phone: <a href="tel:+923138349716">+92 9775430000</a></p>
+    <p>📧 Email: <a href="mailto:support@shopeasy.com">support@shopeasy.com</a></p>
+  </section>
+  <script>function doPost(e) {
+    var name = e.parameter.name;
+    var email = e.parameter.email;
+    var message = e.parameter.message;
+  
+    var subject = "New Contact Form Submission";
+    var body = `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`;
+  
+    GmailApp.sendEmail("fahimaazizi397@gmail.com", subject, body);
+    return ContentService.createTextOutput("Message Sent Successfully");
+  }
+  </script>
+  
+
+</body>
+</html>
