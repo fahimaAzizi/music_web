@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Common Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #5e0505;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 24px;
+    }
+
+    /* Services Section */
+    .services-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .service-item {
+      width: 300px;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .service-details {
+      display: none;
+      background-color: #f9f9f9;
+      margin-top: 10px;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      text-align: left;
+      font-size: 14px;
+      color: #333;
+      border-radius: 5px;
+    }
+
+    .learn-more-btn {
+      padding: 10px 15px;
+      background-color: #5e0505;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .learn-more-btn:hover {
+      background-color: #7f0808;
+    }
+
+    /* Call to Action Section */
+    .cta-section {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f8f8f8;
+      margin: 40px auto;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+
+    .cta-section h3 {
+      color: #5e0505;
+      margin-bottom: 10px;
+    }
+
+    .cta-section form {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-section input {
+      padding: 10px;
+      width: 70%;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .cta-section button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #5e0505;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    .cta-section button:hover {
+      background-color: #7f0808;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      text-align: center;
+      background-color: #fff;
+      padding: 40px 20px;
+      margin: 20px auto;
+    }
+
+    .testimonial-item {
+      margin: 15px auto;
+      padding: 10px;
+      border-left: 4px solid #5e0505;
+      background-color: #f8f8f8;
+      max-width: 600px;
+    }
+
+    .testimonial-item h4 {
+      margin-top: 10px;
+      color: #5e0505;
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: #5e0505;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin: 10px;
+      min-width: 200px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    .footer-section a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #f1c1c1;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      border-top: 1px solid #fff;
+      padding-top: 10px;
+    }
+
+    .social-icon {
+      margin-right: 15px;
+      text-decoration: none;
+      font-size: 1.1em;
+      color: #fff;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #5e0505;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-to-top:hover {
+      background-color: #7f0808;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .services-section {
+        padding: 20px;
+        justify-content: space-around;
+      }
+
+      .service-item {
+        width: 100%;
+      }
+
+      .cta-section input {
+        width: 60%;
+      }
+
+      .cta-section button {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">ShopEasy Delivery</h1>
+  </header>
+
+  <main class="services-section">
+    <div class="service-item">
+      <img src="food-delivery.jpg" alt="Food Delivery">
+      <h2>Food Delivery</h2>
+      <p>Get fresh meals delivered to your doorstep.</p>
+      <button class="learn-more-btn" onclick="toggleDetails('food')">Learn More</button>
+      <div class="service-details" id="food">
+        <p>We partner with top restaurants to deliver your favorite meals. Track your order in real-time and enjoy contactless delivery. Guaranteed freshness every time.</p>
+      </div>
+    </div>
+
+    <!-- Add other service items here similarly -->
+
+  </main>
+
+  <div class="cta-section">
+    <h3>Stay Updated!</h3>
+    <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+    <form action="subscribe.html" method="POST">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-item">
+      <p>"ShopEasy made my life so much easier! Their service is reliable and fast."</p>
+      <h4>- Sarah M.</h4>
+    </div>
+    <div class="testimonial-item">
+      <p>"The grocery delivery is top-notch. Fresh items delivered right to my door."</p>
+      <h4>- John D.</h4>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Phone: <a href="tel:03138349716">0313-8349716</a></p>
+        <p>Email: <a href="mailto:support@shopeasy.com">support@shopeasy.com</a></p>
+        <p>Address: 123 Main Street, Your City, Country</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <a href="#" class="

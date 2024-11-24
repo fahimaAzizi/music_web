@@ -27,7 +27,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #5e0505; /* Matches Home Page */
+  background-color: #5e0505; /* Primary Dark Red */
   padding: 15px 20px;
   text-align: center;
 }
@@ -44,7 +44,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 50px 20px;
-  background-color: #6e7dff; /* Matches Home Page Buttons */
+  background-color: #d4a373; /* Muted Gold */
   color: white;
 }
 
@@ -81,7 +81,9 @@ body {
   flex-wrap: wrap;
   align-items: center;
   padding: 40px 20px;
-  background-color: #e8f5ff; /* Light Accent */
+  background-color: #f8e8da; /* Light Warm Beige */
+  margin: 30px 50px;
+
 }
 
 .story-image {
@@ -90,7 +92,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 /* Key Values Section */
 .key-values {
   text-align: center;
@@ -112,9 +113,16 @@ body {
   max-width: 300px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #6e7dff; /* Matches Hero Section */
+  background-color: #d4a373; /* Muted Gold */
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .value h3 {
@@ -122,34 +130,66 @@ body {
   margin-bottom: 10px;
 }
 
-/* Call to Action Section */
-.call-to-action {
-  background-color: #5e0505; /* Matches Navbar */
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
+/* Details Section */
+.details-section {
+  margin-top: 30px;
+  padding: 20px;
   border-radius: 10px;
+  background-color: #f8e8da; /* Light Warm Beige */
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  transition: opacity 0.3s ease;
 }
 
-.cta-btn {
-  display: inline-block;
+.details-section.visible {
+  display: block;
+  opacity: 1;
+}
+
+.details-section.hidden {
+  opacity: 0;
+  display: none;
+}
+
+.details-section h3 {
+  color: #5e0505; /* Matches primary dark red */
+  margin-bottom: 10px;
+}
+
+.close-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: white;
-  color: #5e0505; /* Matches Navbar */
+  background-color: #5e0505; /* Matches primary dark red */
+  color: white;
   font-weight: bold;
-  text-decoration: none;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.cta-btn{
+  color: #5e0505;
+  text-align: right;
 
-.cta-btn:hover {
-  background-color: #f5f5f5;
+
+  
+ 
 }
+.call-to-action{
+  margin: 30px 50px;
+
+}
+
+.close-btn:hover {
+  background-color: #7a0a0a;
+
+}
+
 
 /* Footer */
 .footer {
-  background-color: #333;
+  background-color: #460303;
   color: white;
   text-align: center;
   padding: 10px;
@@ -193,26 +233,38 @@ body {
 
     <section class="key-values">
       <h2>Our Core Values</h2>
+      <p>Click on any value to learn more about what drives us.</p>
+      
       <div class="values">
-        <div class="value">
-          <h3>Innovation</h3>
-          <p>We strive to deliver cutting-edge solutions every day.</p>
-        </div>
-        <div class="value">
-          <h3>Trust</h3>
-          <p>Every delivery is built on reliability and security.</p>
-        </div>
-        <div class="value">
+        <div class="value" onclick="showDetails('community')">
           <h3>Community</h3>
-          <p>Connecting people, businesses, and ideas.</p>
+          <p>Supporting and connecting people.</p>
+        </div>
+        <div class="value" onclick="showDetails('trust')">
+          <h3>Trust</h3>
+          <p>Building confidence through integrity.</p>
+        </div>
+        <div class="value" onclick="showDetails('innovation')">
+          <h3>Innovation</h3>
+          <p>Driving progress through creativity.</p>
         </div>
       </div>
+    
+      <!-- Details Section -->
+      <div id="details-section" class="details-section hidden">
+        <h3 id="details-title"></h3>
+        <p id="details-description"></p>
+        <button class="close-btn" onclick="hideDetails()">Close</button>
+      </div>
     </section>
+    
 
     <section class="call-to-action">
       <h2>Join the Adventure</h2>
       <p>Let’s create memorable journeys together. Contact us or explore our services to begin.</p>
-      <a href="contact.html" class="cta-btn">Get in Touch</a>
+      <a href="tel:099775432" class="cta-btn"><h3>Get in Touch</h3></a>
+      
+      
     </section>
   </main>
 
@@ -220,4 +272,45 @@ body {
     <p>&copy; 2024 ShopEasy Delivery. All rights reserved.</p>
   </footer>
 </body>
+<script>
+  // Data for the values
+const details = {
+  community: {
+    title: "Community",
+    description:
+      "We strive to bring people together and build strong connections by creating a sense of belonging and mutual support.",
+  },
+  trust: {
+    title: "Trust",
+    description:
+      "We uphold the highest standards of integrity and honesty, ensuring confidence in every interaction.",
+  },
+  innovation: {
+    title: "Innovation",
+    description:
+      "We embrace creativity and forward-thinking to drive meaningful progress and adapt to changing needs.",
+  },
+};
+
+// Function to show details
+function showDetails(value) {
+  const section = document.getElementById("details-section");
+  const title = document.getElementById("details-title");
+  const description = document.getElementById("details-description");
+
+  title.textContent = details[value].title;
+  description.textContent = details[value].description;
+
+  section.classList.remove("hidden");
+  section.classList.add("visible");
+}
+
+// Function to hide details
+function hideDetails() {
+  const section = document.getElementById("details-section");
+  section.classList.remove("visible");
+  section.classList.add("hidden");
+}
+
+</script>
 </html>
