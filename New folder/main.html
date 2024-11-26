@@ -3,73 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delivery App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <title>On-Demand Delivery Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    header {
+      background-color: #5e0505;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #5e0505;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .nav-links {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+      margin: 0;
+    }
+    .nav-links li {
+      display: inline;
+      margin: 0 15px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    .main-content {
+      text-align: center;
+      padding: 50px;
+    }
+    .search-bar {
+      width: 80%;
+      padding: 10px;
+      margin: 20px 0;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .service-options {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .service-option {
+      margin: 0 20px;
+      padding: 20px;
+      background-color: #e7f7ff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .service-option img {
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+  
+  </head>
 <body>
- 
-    <nav class="navbar">
-        <h1 class="logo">ShopEasy</h1>
-        <input type="text" placeholder="Search..." class="search-bar">
-        
-        <!-- Navbar Links -->
-        <ul class="nav-links">
-          <li><a href="main.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="cart.html">Cart</a></li>
-         
-        </ul>
-        
-        <!-- Login/Signup Button -->
-        <button class="login-btn"><a href="login.html">Login</a></button>
-        
-        <!-- Mobile Hamburger Menu -->
-        <div class="hamburger-menu" onclick="toggleMenu()">
-          &#9776; <!-- Hamburger icon -->
-        </div>
-      </nav>
-      
- 
 
-  <footer class="footer">
-    <div class="footer-section about">
-      <h3>About Us</h3>
-      <p>We provide safe and on-time delivery for all your needs. Our platform ensures reliable and efficient service.</p>
+<header>
+  <h1>On-Demand Delivery Service</h1>
+  <ul class="nav-links">
+    <li><a href="main.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li><a href="login.html" class="auth-btn">Login</a>
+    <a href="signup.html" class="auth-btn">Sign Up</a>
+
+  </ul>
+</header>
+
+<div class="main-content">
+  <h2>Fast and Reliable Delivery</h2>
+  <p>Get your products delivered instantly with our on-demand service. Just tell us what you need, and we’ll take care of the rest!</p>
+  <input type="text" class="search-bar" placeholder="Enter delivery details...">
+  
+  <div class="service-options">
+    <div class="service-option">
+      <img src="food-icon.png" alt="Food">
+      <p>Food Delivery</p>
     </div>
-    <div class="footer-section contact">
-      <h3>Contact Us</h3>
-      <p>Email: support@shopeasy.com</p>
-      <p>Phone: +123 456 7890</p>
-      <p>Customer Support: 24/7</p>
+    <div class="service-option">
+      <img src="groceries-icon.png" alt="Groceries">
+      <p>Grocery Delivery</p>
     </div>
-    <div class="footer-section location">
-      <h3>Our Location</h3>
-      <p>123 Market Street, Downtown, Cityname</p>
+    <div class="service-option">
+      <img src="parcel-icon.png" alt="Parcel">
+      <p>Parcel Delivery</p>
     </div>
-    <div class="footer-section social">
-      <h3>Follow Us</h3>
-      <p>
-        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
-      </p>
-    </div>
-    <div class="footer-section policies">
-      <h3>Policies</h3>
-      <p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Refund Policy</a>
-      </p>
-    </div>
-    <div class="footer-section newsletter">
-      <h3>Subscribe</h3>
-      <form>
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-    <div class="footer-section copyright">
-      <p>&copy; 2024 ShopEasy. All Rights Reserved.</p>
-    </div>
-  </footer>
+  </div>
+  
+  <button>Start Your Order</button>
+</div>
+
+<footer>
+  <p>© 2024 On-Demand Delivery Service</p>
+</footer>
+
 </body>
 </html>

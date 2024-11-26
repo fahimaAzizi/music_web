@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn {
+            padding: 10px 20px;
+            color: white;
+            background-color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .summary {
+            text-align: right;
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .summary h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <div class="summary">
+        <h2>Total: $<span id="total">0.00</span></h2>
+        <h2>Service Fee (5%): $<span id="service-fee">0.00</span></h2>
+        <h2>Grand Total: $<span id="grand-total">0.00</span></h2>
+        <a href="checkout.html" class="btn">Proceed to Checkout</a>
+    </div>
+
+    <script>
+        // Sample cart data (can come from a backend or localStorage)
+        const cartData = [
+            { item: "Pizza", price: 15.00, quantity: 2 },
+            { item: "Burger", price: 10.00, quantity: 1 },
+            { item: "Pasta", price: 12.50, quantity: 1 }
+        ];
+
+        // Populate the cart
+        const cartItems = document.getElementById("cart-items");
+        let total = 0;
+
+        cartData.forEach((product, index) => {
+            const subtotal = product.price * product.quantity;
+            total += subtotal;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${product.item}</td>
+                <td>$${product.price.toFixed(2)}</td>
+                <td><input type="number" value="${product.quantity}" min="1" data-index="${index}" class="quantity-input"></td>
+                <td class="subtotal">$${subtotal.toFixed(2)}</td>
+                <td><button class="btn-remove" data-index="${index}">Remove</button></td>
+            `;
+            cartItems.appendChild(row);
+        });
+
+        // Calculate and display totals
+        function calculateTotals() {
+            let updatedTotal = 0;
+
+            // Update subtotal and total
+            document.querySelectorAll(".subtotal").forEach((cell, i) => {
+                const quantity = parseInt(document.querySelectorAll(".quantity-input")[i].value);
+                const price = cartData[i].price;
+                const newSubtotal = quantity * price;
+
+                cell.textContent = `$${newSubtotal.toFixed(2)}`;
+                updatedTotal += newSubtotal;
+            });
+
+            const serviceFee = updatedTotal * 0.05;
+            const grandTotal = updatedTotal + serviceFee;
+
+            document.getElementById("total").textContent = updatedTotal.toFixed(2);
+            document.getElementById("service-fee").textContent = serviceFee.toFixed(2);
+            document.getElementById("grand-total").textContent = grandTotal.toFixed(2);
+        }
+
+        // Event listeners for quantity change
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("input", calculateTotals);
+        });
+
+        // Remove item from cart
+        document.querySelectorAll(".btn-remove").forEach(button => {
+            button.addEventListener("click", function () {
+                const index = this.dataset.index;
+                cartData.splice(index, 1); // Remove from data
+                this.closest("tr").remove(); // Remove from table
+                calculateTotals(); // Recalculate totals
+            });
+        });
+
+        // Initial calculation
+        calculateTotals();
+    </script>
+
+</body>
+</html>
