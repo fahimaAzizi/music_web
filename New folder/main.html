@@ -15,7 +15,12 @@
       background-color: #5e0505;
       color: white;
       padding: 10px 20px;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
     }
     footer {
       background-color: #5e0505;
@@ -29,11 +34,10 @@
     .nav-links {
       list-style-type: none;
       padding: 0;
-      text-align: center;
       margin: 0;
+      display: flex;
     }
     .nav-links li {
-      display: inline;
       margin: 0 15px;
     }
     .nav-links a {
@@ -43,6 +47,21 @@
     }
     .nav-links a:hover {
       text-decoration: underline;
+    }
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .auth-buttons a {
+      color: white;
+      background-color: #8a1c1c;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .auth-buttons a:hover {
+      background-color: #a42727;
     }
     .main-content {
       text-align: center;
@@ -74,19 +93,20 @@
       height: 60px;
     }
   </style>
-  
-  </head>
+</head>
 <body>
 
 <header>
-  <h1>On-Demand Delivery Service</h1>
+  <div class="logo">On-Demand Delivery Service</div>
   <ul class="nav-links">
     <li><a href="main.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="contact.html">Contact</a></li><a href="login.html" class="auth-btn">Login</a>
-    <a href="signup.html" class="auth-btn">Sign Up</a>
-
+    <li><a href="">Services</a></li>
+    <li><a href="">Contact</a></li>
   </ul>
+  <div class="auth-buttons">
+    <a href="login.html">Login</a>
+    
+  </div>
 </header>
 
 <div class="main-content">
@@ -117,4 +137,14 @@
 </footer>
 
 </body>
+<script>
+  window.onload = function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+          alert('Access denied! Please log in first.');
+          window.location.href = 'login.html'; // Redirect to login
+      }
+  };
+</script>
+
 </html>

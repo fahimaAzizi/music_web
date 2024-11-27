@@ -200,21 +200,28 @@
     
 </style>
     <script>
-        // Example JavaScript to simulate error handling
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission for demo
+   
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            // Example error condition (you can replace with actual logic)
-            if (email !== "test@example.com" || password !== "password123") {
-                document.getElementById('error-message').style.display = 'block';
-            } else {
-                // Proceed with actual login
-                window.location.href = 'main.html';
-            }
-        });
+        // Hardcoded correct credentials for demonstration
+        const correctEmail = "test@example.com";
+        const correctPassword = "password123";
+
+        if (email === correctEmail && password === correctPassword) {
+            localStorage.setItem('isLoggedIn', 'true'); // Store login state
+            alert('Login successful!');
+            window.location.href = 'main.html'; // Redirect to main page
+        } else {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
+
+
+
     </script>
 </body>
 </html>
