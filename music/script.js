@@ -1,3 +1,4 @@
+
 async function main() {
     console.log('Lets write JavaScript');
 
@@ -41,19 +42,25 @@ async function main() {
             return [];
         }
 
-        songUL.innerHTML = songs.map(song => `
-            <li>
-                <img class="invert" width="34" src="img/music.svg" alt="">
-                <div class="info">
-                    <div>${song.replaceAll("%20", " ")}</div>
-                    <div>Artist Name</div>
-                </div>
-                <div class="playnow">
-                    <span>Play Now</span>
-                    <img class="invert" src="img/play.svg" alt="">
-                </div>
-            </li>
-        `).join("");
+        songUL.innerHTML = songs.map(song => {
+            // Check if the song is song2.mp3
+            const isSadVibesSong = song === "song2.mp3"; // Check if it's song2.mp3
+        
+            return `
+                <li>
+                    <img class="invert" width="34" src="music.svg" alt="">
+                    <div class="info">
+                        <div>${song.replaceAll("%20", " ")}</div>
+                        <div>${isSadVibesSong ? "Sad Vibes" : "Artist Name"}</div> <!-- Show Sad Vibes for song2 -->
+                    </div>
+                    <div class="playnow">
+                        <span>Play Now</span>
+                        <img class="invert" src="play.svg" alt="">
+                    </div>
+                </li>
+            `;
+        }).join("");
+        
 
         Array.from(songUL.getElementsByTagName("li")).forEach((e, index) => {
             e.addEventListener("click", () => {
@@ -70,7 +77,7 @@ async function main() {
         currentSong.src = `http://127.0.0.1:5500/music/songs/${track}`;
         if (!pause) {
             currentSong.play().catch(err => console.error("Playback failed:", err));
-            document.getElementById('play').src = "img/pause.svg"; // Change to pause icon
+            document.getElementById('play').src = "pause.svg"; // Change to pause icon
         }
 
         document.querySelector(".songinfo").textContent = decodeURI(track);
@@ -93,10 +100,10 @@ async function main() {
     document.querySelector("#play").addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play().catch(err => console.error("Playback failed:", err));
-            document.getElementById('play').src = "img/pause.svg"; // Change to pause icon
+            document.getElementById('play').src = "pause.svg"; // Change to pause icon
         } else {
             currentSong.pause();
-            document.getElementById('play').src = "img/play.svg"; // Change to play icon
+            document.getElementById('play').src = "play.svg"; // Change to play icon
         }
     });
 

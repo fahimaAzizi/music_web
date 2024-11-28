@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        #login-screen {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #login-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #login-button:hover {
+            background-color: #0056b3;
+        }
+
+        #email, #password {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #error-message {
+            color: red;
+            display: none;
+        }
+
+        #player-screen {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-screen" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <button id="login-button">Login</button>
+        <p id="error-message">Invalid credentials. Please try again.</p>
+    </div>
+    
+    <div id="player-screen">
+        <h2>Music Player</h2>
+        <!-- Add playbar and other music controls here -->
+    </div>
+</body>
+<script>
+    async function main() {
+        const allowedEmail = "original@gmail.com";
+        const allowedPassword = "securepassword";
+
+        function checkLogin() {
+            return localStorage.getItem("loggedIn") === "true";
+        }
+
+        function updateUI() {
+            if (checkLogin()) {
+                document.getElementById("login-screen").style.display = "none";
+                document.getElementById("player-screen").style.display = "block";
+            } else {
+                document.getElementById("login-screen").style.display = "flex";
+                document.getElementById("player-screen").style.display = "none";
+            }
+        }
+
+        document.getElementById("login-button").addEventListener("click", () => {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            if (email === allowedEmail && password === allowedPassword) {
+                localStorage.setItem("loggedIn", "true");
+                updateUI();
+            } else {
+                errorMessage.style.display = "block";
+            }
+        });
+
+        updateUI();
+
+        if (checkLogin()) {
+            console.log("User logged in");
+            // Initialize your music player here
+        }
+    }
+
+    main().catch(err => console.error("Error initializing app:", err));
+</script>
+</html>
