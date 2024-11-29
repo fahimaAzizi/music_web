@@ -438,3 +438,70 @@ body {
 
     
 }
+/* General styling for the playlist container */
+.playlist-container {
+    display: flex; /* Use flexbox to align items */
+    flex-wrap: wrap; /* Allow items to wrap onto new lines if necessary */
+    gap: 20px; /* Space between playlist items */
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+/* Styling for individual playlist cards */
+.playlist-card {
+    width: 250px; /* Set a fixed width for each playlist */
+    height: 350px; /* Set a fixed height for each playlist */
+    background-color: #f0f0f0; /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Hover effect to scale playlist cards */
+.playlist-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Styling for the image inside the playlist */
+.playlist-card img {
+    width: 100%; /* Ensure the image takes up the full width of the card */
+    height: 180px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensure the image is cropped and scaled properly without distortion */
+}
+
+/* Playlist title and description */
+.playlist-card h2 {
+    font-size: 1.2rem;
+    margin: 10px;
+    color: #333; /* Dark color for text */
+    text-align: center;
+}
+
+/* Playlist description */
+.playlist-card p {
+    font-size: 1rem;
+    color: #666; /* Lighter color for description */
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Play button (optional, if you have a play button in each card) */
+.playlist-card .play-button {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #1db954; /* Spotify green */
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for play button */
+.playlist-card .play-button:hover {
+    background-color: #1ed760; /* Slightly lighter green */
+}
