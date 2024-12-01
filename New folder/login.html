@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ShopEasy</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Load the Google Identity Services client library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <div class="login-page">
@@ -17,6 +19,7 @@
                 <p>Invalid email or password. Please try again.</p>
             </div>
 
+            <!-- Traditional Login Form -->
             <form id="login-form" method="post">
                 <div class="input-group">
                     <label for="email">Gmail:</label>
@@ -43,185 +46,88 @@
                 <a href="forgot-password.html">Forgot Password?</a>
             </div>
 
-            <!-- Social Media Login Buttons (Optional) -->
-            <div class="social-login">
-                <p>Or login with:</p>
-                <button class="social-btn google">Login with Google</button>
-                <button class="social-btn facebook">Login with Facebook</button>
+            <!-- Google Login Button -->
+            <!-- Google Login Button -->
+<div class="social-login">
+    <p>Or login with:</p>
+    <div id="g_id_onload"
+        data-client_id="119503908158-0qjj52jebt3k53k2a8tqhf8itdsvoqtm.apps.googleusercontent.com"
+        data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+</div>
+
+            <!-- Link to create a new Gmail account -->
+            <div class="create-account">
+                <p>Don't have a Gmail account?</p>
+                <a href="https://accounts.google.com/signup" target="_blank">Create a new Gmail account</a>
             </div>
         </div>
     </div>
     
-
-<style>
-    /* Basic Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
-    /* Page Layout */
-    .login-page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        background: linear-gradient(135deg, #5e0505, #5e0505);
-        padding: 20px;
-    }
-    
-    .login-container {
-        background-color: white;
-        padding: 40px 60px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #5e0505;
-        text-align: center;
-    }
-    
-    p {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #555;
-    }
-    
-    .input-group {
-        margin-bottom: 20px;
-    }
-    
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: #5e0505;
-        font-weight: bold;
-    }
-    
-    input[type="email"], input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-        color: #333;
-        background-color: #f8f8f8;
-    }
-    
-    input[type="email"]:focus, input[type="password"]:focus {
-        border-color: #5e0505;
-        outline: none;
-    }
-    
-    button[type="submit"] {
-        width: 100%;
-        padding: 12px;
-        background-color: #5e0505;
-        color: white;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    button[type="submit"]:hover {
-        background-color: #4a5df7;
-    }
-    
-    .checkbox-group {
-        margin: 10px 0;
-    }
-    
-    .forgot-password {
-        text-align: center;
-        margin-top: 10px;
-    }
-    
-    .forgot-password a {
-        color: #5e0505;
-        text-decoration: none;
-    }
-    
-    .social-login {
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    .social-btn {
-        width: 100%;
-        padding: 12px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        margin-bottom: 10px;
-    }
-    
-    .social-btn.google {
-        background-color: #db4437;
-        color: white;
-    }
-    
-    .social-btn.google:hover {
-        background-color: #c1351d;
-    }
-    
-    .social-btn.facebook {
-        background-color: #3b5998;
-        color: white;
-    }
-    
-    .social-btn.facebook:hover {
-        background-color: #2d4373;
-    }
-    
-    .error-message {
-        color: red;
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 14px;
-    }
-    
-</style>
-    <script>
-   
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
-
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        // Hardcoded correct credentials for demonstration
-        const correctEmail = "test@example.com";
-        const correctPassword = "password123";
-
-        if (email === correctEmail && password === correctPassword) {
-            localStorage.setItem('isLoggedIn', 'true'); // Store login state
-            alert('Login successful!');
-            window.location.href = 'main.html'; // Redirect to main page
-        } else {
-            document.getElementById('error-message').style.display = 'block';
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-    });
 
+        .login-container {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
 
+        h2 {
+            text-align: center;
+            color: #5e0505;
+        }
 
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        // Handling traditional login
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Hardcoded correct credentials for demonstration
+            const correctEmail = "test@example.com";
+            const correctPassword = "password123";
+
+            if (email === correctEmail && password === correctPassword) {
+                localStorage.setItem('isLoggedIn', 'true'); // Store login state
+                alert('Login successful!');
+                window.location.href = 'main.html'; // Redirect to main page
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+
+        // Handling Google login
+        function handleCredentialResponse(response) {
+            const token = response.credential;
+            console.log("Google ID Token: ", token);
+            alert('Google Login successful!');
+            window.location.href = 'main.html'; // Redirect after login
+        }
     </script>
 </body>
 </html>
