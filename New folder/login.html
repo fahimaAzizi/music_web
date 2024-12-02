@@ -20,12 +20,11 @@
             </div>
 
             <!-- Traditional Login Form -->
-            <form id="login-form" method="post">
+            <form id="login-form">
                 <div class="input-group">
                     <label for="email">Gmail:</label>
                     <input type="email" id="email" name="email" placeholder="Enter your Gmail" required>
                 </div>
-
                 <div class="input-group">
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
@@ -47,15 +46,14 @@
             </div>
 
             <!-- Google Login Button -->
-            <!-- Google Login Button -->
-<div class="social-login">
-    <p>Or login with:</p>
-    <div id="g_id_onload"
-        data-client_id="119503908158-0qjj52jebt3k53k2a8tqhf8itdsvoqtm.apps.googleusercontent.com"
-        data-callback="handleCredentialResponse">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
-</div>
+            <div class="social-login">
+                <p>Or login with:</p>
+                <div id="g_id_onload"
+                     data-client_id="119503908158-0qjj52jebt3k53k2a8tqhf8itdsvoqtm.apps.googleusercontent.com"
+                     data-callback="handleCredentialResponse">
+                </div>
+                <div class="g_id_signin" data-type="standard"></div>
+            </div>
 
             <!-- Link to create a new Gmail account -->
             <div class="create-account">
@@ -66,6 +64,7 @@
     </div>
     
     <style>
+        /* Your existing styles (shortened for brevity) */
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
@@ -102,21 +101,35 @@
 
     <script>
         // Handling traditional login
-        document.getElementById('login-form').addEventListener('submit', function(event) {
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent form submission
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Hardcoded correct credentials for demonstration
-            const correctEmail = "test@example.com";
-            const correctPassword = "password123";
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
 
-            if (email === correctEmail && password === correctPassword) {
-                localStorage.setItem('isLoggedIn', 'true'); // Store login state
-                alert('Login successful!');
-                window.location.href = 'main.html'; // Redirect to main page
-            } else {
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success) {
+                        localStorage.setItem('isLoggedIn', 'true'); // Store login state
+                        alert('Login successful!');
+                        window.location.href = 'main.html'; // Redirect to main page
+                    } else {
+                        document.getElementById('error-message').style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
                 document.getElementById('error-message').style.display = 'block';
             }
         });
@@ -125,9 +138,11 @@
         function handleCredentialResponse(response) {
             const token = response.credential;
             console.log("Google ID Token: ", token);
+            // TODO: Verify the token on the server side for security
             alert('Google Login successful!');
             window.location.href = 'main.html'; // Redirect after login
         }
+        
     </script>
 </body>
 </html>
